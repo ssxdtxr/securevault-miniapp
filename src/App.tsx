@@ -10,7 +10,8 @@ function App() {
 
   const user = tg?.initDataUnsafe?.user
 
-  const username = tg?.initDataUnsafe?.user?.first_name
+  const username = tg?.initDataUnsafe?.user?.username
+  const first_name = tg?.initDataUnsafe?.user?.first_name
 
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h2>Привет, {username}</h2>
+      <h2>Ты, {first_name}</h2>
       <h2>{JSON.stringify(user)}</h2>
       <h2></h2>
 
