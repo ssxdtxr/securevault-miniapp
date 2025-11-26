@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [debug, setDebug] = useState<string | null>(null)
+  const [debug, setDebug] = useState<string | null>('пока что ничего нет')
 
   useEffect(() => {
     const tg = window.Telegram?.WebApp
@@ -42,6 +42,7 @@ function App() {
       <h1>Vite + React</h1>
       <h2>Привет, {username}</h2>
       <h2>{debug || 'Ждем данных от телеграмм'}</h2>
+      <h2>{JSON.stringify(tg)}</h2>
     </>
   )
 }
