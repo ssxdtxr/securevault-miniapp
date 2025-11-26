@@ -1,18 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-const tg = window.Telegram?.WebApp
-
 function App() {
-  const [count, setCount] = useState(0)
+  const [debug, setDebug] = useState<string | null>(null)
 
-  const user = tg?.initDataUnsafe?.user
+  useEffect(() => {
+    const tg = window.Telegram?.WebApp
+    if (!tg) setDebug('TG не найден')
+
+    tg?.ready()
+
+    const user = tg?.initDataUnsafe?.user
+
+    setDebug(
+      JSON.stringify(
+        {
+          initDataUnsafe: tg?.initDataUnsafe,
+          user,
+        },
+        null,
+        2
+      )
+    )
+  }, [])
+
+  const tg = window.Telegram?.WebApp
 
   const username = tg?.initDataUnsafe?.user?.username
-  const first_name = tg?.initDataUnsafe?.user?.first_name
-
   return (
     <>
       <div>
@@ -25,17 +41,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h2>Привет, {username}</h2>
-      <h2>Ты, {first_name}</h2>
-      <h2>{JSON.stringify(user)}</h2>
-      <h2></h2>
-
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <h2>{debug || 'Ждем данных от телеграмм'}</h2>
     </>
   )
 }
