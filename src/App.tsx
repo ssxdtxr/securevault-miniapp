@@ -8,6 +8,8 @@ const tg = window.Telegram?.WebApp
 function App() {
   const [count, setCount] = useState(0)
 
+  const user = tg?.initDataUnsafe?.user
+
   const username = tg?.initDataUnsafe?.user?.first_name
 
   return (
@@ -21,7 +23,10 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      {username && <h2>Привет, {username}</h2>}
+      <h2>Привет, {username}</h2>
+      <h2>{JSON.stringify(user)}</h2>
+      <h2></h2>
+
       <div className="card">
         <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
         <p>
