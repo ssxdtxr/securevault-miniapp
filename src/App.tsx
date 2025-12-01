@@ -21,7 +21,7 @@ function App() {
   return (
     <div>
       <h1>My Telegram Mini App</h1>
-      <button onClick={onClose}></button>
+      <button onClick={onClose}>close</button>
     </div>
   )
 }
