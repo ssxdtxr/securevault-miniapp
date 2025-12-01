@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './App.css'
 
 // type TelegramUserType = {
@@ -10,7 +10,7 @@ import './App.css'
 const tg = window.Telegram?.WebApp
 
 function App() {
-  const [userData, setUserData] = useState<any>(null)
+  // const [userData, setUserData] = useState<any>(null)
 
   useEffect(() => {
     tg?.ready()
