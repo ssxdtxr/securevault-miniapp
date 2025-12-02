@@ -1,4 +1,3 @@
-// src/hooks/useAuth.ts
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { authService } from '../api/services/auth'
 
