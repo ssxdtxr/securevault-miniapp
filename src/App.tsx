@@ -1,4 +1,4 @@
-import { useAuth } from './shared/hooks/useAuth'
+// import { useAuth } from './shared/hooks/useAuth'
 import { Button } from './shared/ui/Button'
 import { Input } from './shared/ui/Input'
 
