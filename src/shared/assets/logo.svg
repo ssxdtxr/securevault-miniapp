@@ -1,0 +1,53 @@
+<svg  viewBox="0 0 200 100"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Рамка 200x200 -->
+    <clipPath id="cloud-frame">
+      <rect x="0" y="0" width="200" height="200" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#cloud-frame)">
+    <!-- Базовое положение по центру -->
+    <g id="cloud" transform="translate(0,-10)">
+      <!-- 1) Плавное вертикальное движение -->
+      <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        type="translate"
+        additive="sum"
+        dur="3s"
+        repeatCount="indefinite"
+        keyTimes="0;0.5;1"
+        values="0 0; 0 -6; 0 0" />
+
+      <!-- 2) Лёгкое покачивание вокруг центра (100,100) -->
+      <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        additive="sum"
+        dur="4s"
+        repeatCount="indefinite"
+        keyTimes="0;0.33;0.66;1"
+        values="0 100 100; 1.5 100 100; -1.5 100 100; 0 100 100" />
+
+      <!-- 3) Пульс по прозрачности -->
+      <animate
+        attributeName="opacity"
+        dur="2.5s"
+        repeatCount="indefinite"
+        values="1;0.9;1" />
+
+      <!-- Ужато по ширине, чтобы были поля слева/справа -->
+      <path
+        d="M30 140h140a30 30 0 0 0 0-60
+           38 38 0 0 0-70-16
+           30 30 0 0 0-48 22
+           24 24 0 0 0 0 54z"
+        fill="#0055FF"
+      />
+    </g>
+  </g>
+</svg>
